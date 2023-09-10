@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShuyMusic</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        function changeAudioSource(songInfo) {
+            const audioElement = document.getElementById('audioElement');
+            audioElement.src = songInfo.audioPath;
+            audioElement.load(); // Memuat ulang sumber audio baru
+            audioElement.play(); // Memainkan audio yang baru
+
+            // Ubah informasi album pada elemen aside
+            document.getElementById('albumImage').src = songInfo.albumPath;
+            document.getElementById('albumTitle').textContent = songInfo.albumTitle;
+            document.getElementById('artis').textContent = songInfo.artis;
+            document.getElementById('album').textContent = songInfo.album;
+            document.getElementById('lyrics').textContent = songInfo.lyrics;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <h1>Selamat Datang di ShuyMusic</h1>
+                </li>
+                <li>
+                    <h1 id="playMusicButton">How to?</h1>
+                </li>
+                <!-- <li>
+                    <h1><a href="https://symp.ahmadyaz.my.id">Hosting version?</a></h1>
+                </li> -->
+            </ul>
+            <div id="popup" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closePopup">&times;</span>
+                    <p>Jika ingin memutar musik, pilih lagu terlebih dahulu.</p>
+                </div>
+            </div>            
+        </nav>         
+    </header>
+    <main class="container">
+        <aside>
+            <!-- <img src="https://is4-ssl.mzstatic.com/image/thumb/Music/v4/86/1a/18/861a1888-5a7a-d378-e76d-b2cff75ad5ff/KICS-91847.jpg/400x400cc.jpg" alt="Album Musik" height="200"> -->
+            <img id="albumImage" src="" alt="Photo Album" height="200px">
+            <h2>Data Musik</h2>
+            <hr>
+            <ul>
+                <li>Judul: <a id="albumTitle"></a></li>
+                <li>Artis: <a id="artis"></a></li>
+                <li>Album: <a id="album"></a></li>
+            </ul>
+            <audio  id="audioElement" controls autoplay>
+                <source src="" type="audio/mpeg">
+                Maaf, browser Anda tidak mendukung pemutaran audio.
+            </audio>
+        </aside>
+        <div id="content">
+            <article>
+                <h2>Daftar Lagu</h2>
+                <ul>
+                    <li>
+                        <button onclick="changeAudioSource({ 
+                            // audioPath: 'assets/music/Exterminate.oga', 
+                            audioPath: 'https://static.wikia.nocookie.net/senkizesshousymphogear/images/0/01/Exterminate.ogg/revision/latest?cb=20170707131732', 
+                            albumPath: 'assets/images/Exterminate.webp', 
+                            albumTitle: 'Exterminate',
+                            artis: 'Nana Mizuki',
+                            album: 'THE MUSEUM III',
+                            lyrics: `
+Ten takaku todoroke
+Namiutsu omoi tabanete
+Shinjitsu no neiro wa koko ni aru kara…
+
+Furueru kono mune no shigunaru
+Ikutsumo no yoru wo kakenukete
+Kimi wo sagashiteita kuruoshī hodo ni
+Moroha no nukumori ni ukanda yūbi na oto ni
+Kakushita namida wa sora wo samayō
+
+Mabushī senritsu wa motomeru tabi ni
+Gensō wo utsushidasu kedo
+Ima to iu shunkan ga itsudatte asu wo tsukuru kara
+Kimi no tame ni utaitai yo
+
+Tokihanate subete wo
+Shinjiru yume ga aru nara
+Hibikiau kodō wa tomerarenai yo
+Yukō (issho ni) te wo totte (dokomade mo)
+Sono hohoemi wa hanasanai
+
+Kōsakusuru kioku to kibō
+Tojikometa ai ni kidzukazu ni
+Yasashisa to yowasa no hazama de nageiteita
+
+Hakanaku chiru kako wo oikakeru yori
+Jibun no koe ni mimi wo sumashite
+Hontō no shiawase wa itsudatte sugusoba ni aru kara
+Kimi dake ni todoketai nda
+
+Moeagare hatenaku
+Mamoritai mono ga aru nara
+Kizamareta chikai wa dare mo kowasenai
+Love is not over…
+
+Ushinau koto ga kowakute
+Shiru koto wo tōzaketeita
+Hajimete kimi ga ataetekureta yorokobi ga
+Kakugo ni kawaru yo
+
+Kimi ni tsutae, inochi no uta
+Tokihanate subete wo
+Shinjiru yume ga aru nara
+Hibikiau kodō wa tomerarenai yo
+Yukō (issho ni) te wo totte (dokomade mo)
+Sono hohoemi wa hanasanai
+Exterminate
+                            `})">Exterminate 4:04</button>
+                    </li>
+                    <li>
+                        <button onclick="changeAudioSource({ 
+                            // audioPath: 'assets/music/Synchrogazer.ogg', 
+                            audioPath: 'https://static.wikia.nocookie.net/senkizesshousymphogear/images/b/bd/Synchrogazer.ogg/revision/latest?cb=20150808220216', 
+                            albumPath: 'assets/images/Mizuki_Nana_Synchrogazer.webp', 
+                            albumTitle: 'Synchrogazer',
+                            artis: 'Nana Mizuki',
+                            album: 'THE MUSEUM III',
+                            lyrics: `                
+Listen to my song…
+
+Boku no koe wa kikoeteimasu ka? please tell me…
+Kotae no nai kyokō no sora mezashi fly far away
+
+Kotoba ja tarinai kara boku no subete uketomete
+Seigyo dekinai…shitakunai yo
+Hajimete shiru kankaku
+Kimi ni utau yo eien no hajimari wo
+
+Dakara waratte…
+Dare yori mo atsuku dare yori mo tsuyoku dakishimeru yo
+Furueru kokoro yusabureba ī nanika ga ugokidasu
+Bokura kitto, umareta hi kara deaeru hi wo zutto sagashiteta nda
+Kaze no naku yoru wa omoidashite
+Tomo ni kanadeta kiseki ten ni mau yo
+
+Boku no omoi wa todoiteimasu ka? true or false
+Fureau tabi modokashisa ga tsunoru crying more crying
+
+Itsumo sakete bakari ita asu wo miushinaisō de
+Kizutsukenai yō ni kizutsukanai yō ni
+Uso dake ga fueteiku
+
+Dakedo waratte…
+Itai kurai ni kurushī hodo ni sō…itoshī kara
+Motomeru kimochi osaekirenai jibun ga kowakatta
+Yatto, karadajū meguru honnō no RHYTHM ni kidzuita nda
+Mō nidoto kimi wo hanasanai yo
+Ikutsu mo no kinō ga ne, mirai wo terasu
+
+Kono mi kuchihatete mo tsutaetai mono ga aru
+Hibike inochi no uta kanata habataite
+
+Dakara waratte…
+Dare yori mo atsuku dare yori mo tsuyoku dakishimetai
+Furueru kokoro yusabureba ī nanika ga ugokidasu
+Bokura kitto, umareta hi kara deaeru hi wo zutto sagashiteta nda
+Kaze no naku yoru wa omoidashite
+Tomo ni tsumuida kiseki ten wo egaku yo
+                            `})">Synchrogazer 4:27</button>
+                    </li>
+                    <li>
+                        <button onclick="changeAudioSource({ 
+                            // audioPath: 'assets/music/Vitalization.oga',
+                            audioPath: 'https://static.wikia.nocookie.net/senkizesshousymphogear/images/c/cb/Vitalization.ogg/revision/latest?cb=20170707133508', 
+                            albumPath: 'assets/images/Vitalization_cover.webp', 
+                            albumTitle: 'Vitalization',
+                            artis: 'Nana Mizuki',
+                            album: 'THE MUSEUM III',
+                            lyrics: `           
+Onegai kikasete…
+Boku wa koko ni iru kara
+Umareta mama no kanjō wo kakusanai de
+Hikareau neiro ni riyū nante iranai
+Atsuki omoi ten wo tsuranuke true song
+
+Itsu kara darō? Kokyūsuru yō ni
+Dōshite darō? Kimi wo motomeru
+Kowareta kokoro uzukidasu sakebidasu start it up!
+Afuresugita noizu wa itsumo
+Riaru wo tōzake azawarau
+Nozomu hodo ni surinukeru hikari mabushisugite…
+
+Yasuragi mamoru tame ni kodoku erabu yori
+Hitori de wa shiru koto no nai
+Te no nukumori kanjitai kara
+
+Kimi dake ni sasagu inochi no senritsu
+Utsukushī niji wo egaku towa e no joshō
+Kono mune no chikai wa dare ni mo ubaenai
+Tobitatō koe wo kasanete
+Sora ga matteiru kara
+
+Ato dore kurai ashita kazoete
+Ato dore kurai namida karaseba
+Boku wa boku de irareru no…? Oshiete How to fly
+Kotoba yori tashika na ai de
+Mayoi wo uchikudaiteiku
+Tabaneta kimochi ni uso wa tsukitakunai kara
+
+Konna ni mo furueteru kimi ni furetakute
+Mō tojikometakunai
+Donna toki mo hibikiaitai
+
+Nani mo kowakunai kimi to futari nara
+Nejireta jikan sae mo kiseki ni kaeru
+Sono egao dake wa kesshite hanasanai yo
+Shinjite tsunagaru kodō
+Mada minu sekai e to
+Sā, yukō…
+
+Sabishisa wa yasashisa e
+Kizuato wa tsuyoi kizuna musubu akashi ni naru
+
+Kimi dake ni sasagu inochi no senritsu
+Utsukushī niji wo egaku towa e no joshō
+Kono mune no uta ni owari wa nai
+Tobitatō koe wo kasanete
+Sora ga matteiru kara
+Ima, subete wo tokihanatō
+                            `})">Vitalization 3:41</button>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <h2>Lirik Music</h2>
+                <p>
+                    <pre id="lyrics">
+                        Pilih lagu terlebih dahulu!
+                    </pre>
+                </p>
+            </article>
+        </div>
+    </main>
+    <footer>
+        &copy; 2023 ShuyMusic.
+    </footer>
+    <script>
+        // Ambil elemen tombol dan popup
+        const playMusicButton = document.getElementById('playMusicButton');
+        const popup = document.getElementById('popup');
+        const closePopup = document.getElementById('closePopup');
+        
+        // Ketika tombol "Play Music" ditekan, tampilkan popup
+        playMusicButton.addEventListener('click', () => {
+            popup.style.display = 'block';
+        });
+
+        // Ketika tombol tutup di popup ditekan, sembunyikan popup
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
